@@ -45,7 +45,7 @@ BuildProof.prototype.getTransactionProof = async function (txHash) {
       for (var i = 0; i < b.length; i++) {
         var path = rlp.encode(b.transactionIndex);
         // var rawSignedSiblingTx = new EthereumTx(squanchTx(siblingTx)).serialize()
-        var rawSignedSiblingTx = new Transaction.decode(squanchTx(b)) // rlp the transaction
+        let rawSignedSiblingTx =  Transaction.decode(squanchTx(b)) // rlp the transaction
         txTrie.put(path, rawSignedSiblingTx, function (error) {
           if (error != null) { return error }
         })
