@@ -9,6 +9,7 @@
     "merkle-patricia-tree": "^2.3.1",
     "rlp": "^2.0.0",
     "thor-kit": "git+https://gitlab.vechain.com/bin.qian/thor-kit#dev",
+    "thor-model-kit": "^0.2.0",
     "thorify": "^0.1.7",
     "typescript": "^2.8.3",
     "web3": "^1.0.0-beta.34"

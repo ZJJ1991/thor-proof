@@ -1,8 +1,7 @@
 import { resolve } from "path";
-
+import { Transaction } from 'thor-model-kit'
 const Trie = require('merkle-patricia-tree');
 const rlp = require('rlp');
-const thortoolkit = require('thor-kit')
 // https://www.npmjs.com/package/blake-hash
 // https://github.com/cryptocoinjs/blake-hash
 const blake = require('blake-hash');
@@ -46,7 +45,7 @@ BuildProof.prototype.getTransactionProof = async function (txHash) {
       for (var i = 0; i < b.length; i++) {
         var path = rlp.encode(b.transactionIndex);
         // var rawSignedSiblingTx = new EthereumTx(squanchTx(siblingTx)).serialize()
-        var rawSignedSiblingTx = new thortoolkit.Transaction.decode(squanchTx(b)) // rlp the transaction
+        var rawSignedSiblingTx = new Transaction.decode(squanchTx(b)) // rlp the transaction
         txTrie.put(path, rawSignedSiblingTx, function (error) {
           if (error != null) { return error }
         })
